@@ -21,10 +21,10 @@
             sheet.addRule(selector, rules, index);
         }
     }
-    var markerList = [
-        [1, 1, 'http://i.stack.imgur.com/mA4e2.jpg?s=32&g=1','Dr.Molle'],
-        [2, 2, 'https://www.gravatar.com/avatar/668d910027d850895deacbdcd2d53c0a?s=32&d=identicon&r=PG&f=1','user3726872'],
-        [3, 3, 'https://www.gravatar.com/avatar/3eb30c45eab7d4508005f3597df7cde8?s=32&d=identicon&r=PG','fish_ball']
+    var markers = [
+        [38.55, -121.75, 'http://i.stack.imgur.com/mA4e2.jpg?s=32&g=1','Dr.Molle'],
+        [39.65, -121.85, 'https://www.gravatar.com/avatar/668d910027d850895deacbdcd2d53c0a?s=32&d=identicon&r=PG&f=1','user3726872'],
+        [40.75, -121.95, 'https://www.gravatar.com/avatar/3eb30c45eab7d4508005f3597df7cde8?s=32&d=identicon&r=PG','fish_ball']
     ];
 
       var map;
@@ -34,7 +34,25 @@
           center: davis,
           zoom: 15
         });
-        var contentString = '<div id="content">'+
+
+        for (var i = 0; i < markers.length; ++i) {
+            new google.maps.Marker({
+                position: new google.maps.LatLng(markers[i][0], markers[i][1]),
+                map: map,
+                title:markers[i][3],
+                icon: 'http://i.stack.imgur.com/KOh5X.png#' + i,
+                optimized: false
+            });
+            addCSSRule(document.styleSheets[0],
+                'img[src="' + 'http://i.stack.imgur.com/KOh5X.png#' + i + '"]',
+                'background:url(' + markers[i][2] + ') no-repeat 4px 4px');
+        }
+
+
+
+
+
+        /*var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
@@ -66,9 +84,10 @@
         });
         marker.addListener('click', function() {
           infowindow.open(map, marker);
-        });
+        });*/
 
       }
+      google.maps.event.addDomListener(window, 'load', initMap);
 
     </script>
     <script async defer
