@@ -72,6 +72,9 @@
             newMarker.addListener('click', function() {
               infowindow.open(map, newMarker);
             });
+            google.maps.event.addListener(map, "click", function(event) {
+              infowindow.close(map, newMarker);
+          });
             
             addCSSRule(document.styleSheets[0],
                 'img[src="' + 'http://i.stack.imgur.com/KOh5X.png#' + i + '"]',
