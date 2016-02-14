@@ -1,32 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%;
-       }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div id="map">
-      
-      
     </div>
+    <script type="text/javascript" src="./javascripts/infobubble.js"> </script>
     <script type="text/javascript">
-
-      function addCSSRule(sheet, selector, rules, index) {
-        if ("insertRule" in sheet) {
-            sheet.insertRule(selector + "{" + rules + "}", index);
-        } else if ("addRule" in sheet) {
-            sheet.addRule(selector, rules, index);
-        }
-    }
-    var markers = [
-        [38.55, -121.75, 'http://i.stack.imgur.com/mA4e2.jpg?s=32&g=1','Dr.Molle'],
-        [38.545, -121.85, 'https://www.gravatar.com/avatar/668d910027d850895deacbdcd2d53c0a?s=32&d=identicon&r=PG&f=1','user3726872'],
-        [38.540, -121.95, 'https://www.gravatar.com/avatar/3eb30c45eab7d4508005f3597df7cde8?s=32&d=identicon&r=PG','fish_ball']
-    ];
-
 
       var map;
       var davis = {lat: 38.539047,lng: -121.750211};
@@ -35,54 +17,30 @@
           center: davis,
           zoom: 10
         });
-        var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-        '<div id="bodyContent">'+
-        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-        'sandstone rock formation in the southern part of the '+
-        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-        'south west of the nearest large town, Alice Springs; 450&#160;km '+
-        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-        'Aboriginal people of the area. It has many springs, waterholes, '+
-        'rock caves and ancient paintings. Uluru is listed as a World '+
-        'Heritage Site.</p>'+
-        '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-        'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-        '(last visited June 22, 2009).</p>'+
-        '</div>'+
-        '</div>';
-
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
+        
+        var marker = new google.maps.Marker({
+        position: davis,
+        map: map,
+        title: 'Hello World!',
+        icon: './images/smallpin.png',
+        optimized: false
         });
 
-        for (var i = 0; i < markers.length; ++i) {
-            var newMarker = new google.maps.Marker({
-                position: new google.maps.LatLng(markers[i][0], markers[i][1]),
-                map: map,
-                title:markers[i][3],
-                icon: 'http://i.stack.imgur.com/KOh5X.png#' + i,
-                optimized: false
-            });
+        var eventBubble = new InfoBubble({
+          content: "<img src='https://i.imgur.com/50aQRPE.png'> <br> <h1 style='margin:0 auto;'>Katy Perry Presents: Prism Tour at UC Davis</h1> <h2 style='color:#9B9B9B'>February 26, 7:30pm-10pm</h2> <img style='float:right;width:50px;margin-top:-60px;'src='./images/info.png'> <h3 style='width:500px; margin:0 auto;'>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. Learning is cool, but knowing is better, and I know the key to success. Life is what you make it, so let’s make it. Congratulations, you played yourself. Let’s see what Chef Dee got that they don’t want us to eat. To succeed you must believe. When you believe, you will succeed. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Stay focused.</h3>"
 
-            newMarker.addListener('click', function() {
-              infowindow.open(map, newMarker);
-            });
-            google.maps.event.addListener(map, "click", function(event) {
-              infowindow.close(map, newMarker);
-          });
-            
-            addCSSRule(document.styleSheets[0],
-                'img[src="' + 'http://i.stack.imgur.com/KOh5X.png#' + i + '"]',
-                'background:url(' + markers[i][2] + ') no-repeat 4px 4px');
-        }
+        });
+
+        marker.addListener('click', function() {
+          eventBubble.open(map, marker);
+          marker.setVisible(false);
+        });
+        eventBubble.addListener('closeclick', function() {
+          marker.setVisible(true);
+        });
+
+
       }
-      google.maps.event.addDomListener(window, 'load', initMap);
-
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAVoOT1jOwDAdDi-W0KQOC-qHWisU_AY	
