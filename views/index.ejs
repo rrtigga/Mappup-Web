@@ -27,8 +27,9 @@
         });
 
         var eventBubble = new InfoBubble({
-          content: "<img src='https://i.imgur.com/50aQRPE.png'> <br> <h1 style='margin:0 auto;'>Katy Perry Presents: Prism Tour at UC Davis</h1> <h2 style='color:#9B9B9B'>February 26, 7:30pm-10pm</h2> <img style='float:right;width:50px;margin-top:-60px;'src='./images/info.png'> <h3 style='width:500px; margin:0 auto;'>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. Learning is cool, but knowing is better, and I know the key to success. Life is what you make it, so let’s make it. Congratulations, you played yourself. Let’s see what Chef Dee got that they don’t want us to eat. To succeed you must believe. When you believe, you will succeed. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Stay focused.</h3>"
-
+          content: "<img src='https://i.imgur.com/50aQRPE.png'> <br> <a style='color:#4A90E2' target='_blank'href='https://www.facebook.com/events/1048730378484224/'><h1 style='margin:0 auto;'>Katy Perry Presents: Prism Tour at UC Davis</h1></a> <h2 style='color:#9B9B9B'>February 26, 7:30pm-10pm</h2> <h3 style='width:375px; margin:0 auto;'>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. Learning is cool, but knowing is better, and I know the key to success. Life is what you make it, so let’s make it. Congratulations, you played yourself. Let’s see what Chef Dee got that they don’t want us to eat. To succeed you must believe. When you believe, you will succeed. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Stay focused.</h3>",
+          maxWidth:420,
+          maxHeight:400
         });
 
         marker.addListener('click', function() {
@@ -46,5 +47,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAVoOT1jOwDAdDi-W0KQOC-qHWisU_AY	
 &callback=initMap">
     </script>
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js"
+        type="text/javascript"></script>
   </body>
 </html>
