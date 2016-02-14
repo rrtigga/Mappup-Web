@@ -27,7 +27,7 @@
         });
 
         var eventBubble = new InfoBubble({
-          content: "<img src='https://i.imgur.com/50aQRPE.png'> <br> <a style='color:#4A90E2' target='_blank'href='https://www.facebook.com/events/1048730378484224/'><h1 style='margin:0 auto;'>Katy Perry Presents: Prism Tour at UC Davis</h1></a> <h2 style='color:#9B9B9B'>February 26, 7:30pm-10pm</h2> <h3 style='width:375px; margin:0 auto;'>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. Learning is cool, but knowing is better, and I know the key to success. Life is what you make it, so let’s make it. Congratulations, you played yourself. Let’s see what Chef Dee got that they don’t want us to eat. To succeed you must believe. When you believe, you will succeed. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Stay focused.</h3>",
+          content: "<img style='max-width:440px'src='https://i.imgur.com/50aQRPE.png'> <br> <a style='color:#4A90E2' target='_blank'href='https://www.facebook.com/events/1048730378484224/'><h1 style='margin:0 22.5px;'>Katy Perry: Prism Tour @ UC Davis</h1></a> <h2 style='color:#9B9B9B; margin-left:22.5px;'>February 26, 7:30pm-10pm</h2> <h3 style='width:375px; margin:0 auto;'>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. Learning is cool, but knowing is better, and I know the key to success. Life is what you make it, so let’s make it. Congratulations, you played yourself. Let’s see what Chef Dee got that they don’t want us to eat. To succeed you must believe. When you believe, you will succeed. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Stay focused.</h3>",
           maxWidth:420,
           maxHeight:400
         });
@@ -37,6 +37,10 @@
           marker.setVisible(false);
         });
         eventBubble.addListener('closeclick', function() {
+          marker.setVisible(true);
+        });
+        google.maps.event.addListener(map, "click", function(event) {
+          eventBubble.close();
           marker.setVisible(true);
         });
 
