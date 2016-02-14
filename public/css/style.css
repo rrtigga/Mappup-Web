@@ -1,0 +1,23 @@
+html, body { height: 100%; margin: 0; padding: 0; font-family: 'Lato', sans-serif; }
+      #map { height: 100%;
+          margin:0;
+          padding:0;
+       }
+
+img[src='./images/smallpin.png']
+{
+	background:url(https://i.imgur.com/50aQRPE.png) 4px 3px no-repeat;
+	background-size: 85px 51px;
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+.gm-style{
+	font-family: 'Lato', sans-serif;
+}
+
+img[src="https://maps.gstatic.com/intl/en_us/mapfiles/iw_close.gif"] 
+{ 
+	display:none;
+}
