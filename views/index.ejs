@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
   </head>
   <body>
     <div id="map">
@@ -15,7 +16,8 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: davis,
-          zoom: 10
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.HYBRID
         });
         
         var marker = new google.maps.Marker({
@@ -27,7 +29,7 @@
         });
 
         var eventBubble = new InfoBubble({
-          content: "<img style='max-width:440px'src='https://i.imgur.com/50aQRPE.png'> <br> <a style='color:#4A90E2' target='_blank'href='https://www.facebook.com/events/1048730378484224/'><h1 style='margin:0 22.5px;'>Katy Perry: Prism Tour @ UC Davis</h1></a> <h2 style='color:#9B9B9B; margin-left:22.5px;'>February 26, 7:30pm-10pm</h2> <h3 style='width:375px; margin:0 auto;'>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. Learning is cool, but knowing is better, and I know the key to success. Life is what you make it, so let’s make it. Congratulations, you played yourself. Let’s see what Chef Dee got that they don’t want us to eat. To succeed you must believe. When you believe, you will succeed. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Stay focused.</h3>",
+          content: "<img style='max-width:440px'src='https://i.imgur.com/50aQRPE.png'> <br> <a style='color:#4A90E2' target='_blank'href='https://www.facebook.com/events/1048730378484224/'><h1 style='padding-bottom:10px;margin:0 22.5px;'>Katy Perry: Prism Tour @ UC Davis</h1></a> <a target='_blank'style='float:right' href='https://www.google.com/maps/dir//37.004,111.23/'><img style = 'max-width:35px;margin-right:70px;'src='./images/directions.png'></a><h2 style='color:#9B9B9B; margin-left:22.5px;'>February 26, 7:30pm-10pm </h2><h3 style='width:375px; margin:0 auto;padding-top:10px;'>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. Learning is cool, but knowing is better, and I know the key to success. Life is what you make it, so let’s make it. Congratulations, you played yourself. Let’s see what Chef Dee got that they don’t want us to eat. To succeed you must believe. When you believe, you will succeed. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Stay focused.</h3>",
           maxWidth:420,
           maxHeight:400
         });
@@ -45,6 +47,13 @@
         });
 
 
+        /*var testmarker, i;
+        for (i = 0; i < 3; i++) {  
+          testmarker = new google.maps.Marker({
+            position: davis,
+            map: map
+          });
+        }*/
       }
     </script>
     <script async defer
