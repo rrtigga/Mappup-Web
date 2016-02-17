@@ -6,4 +6,16 @@
 
 -Figure out how to scrape all facebook events by city
 
--Get Directions with Google Maps API
+-Get Directions using Google Maps API 
+
+
+https://www.google.com/maps/dir//37.004,111.23/
+
+
+
+----Iterate through JSON objects in Firebase 
+Figure out how index JSON Objects you retrieve
+
+----Put Objects in array somehow
+----convert json object to json string
+now figure out how to put that json string in a json array
