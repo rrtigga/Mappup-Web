@@ -25,3 +25,10 @@ now figure out how to put that json string in a json array
 since you now have it in an array
 
 find out how you can structure the content in the infobubble 
+
+
+=====
+
+find out how you can make a function to createMarker and addInfoBubble
+
+====store all keys of each JSON Object
