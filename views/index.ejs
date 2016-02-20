@@ -38,14 +38,14 @@
 
         marker.addListener('click', function() {
           eventBubble.open(map, marker);
-          marker.setVisible(false);
+          //marker.setVisible(false);
         });
         eventBubble.addListener('closeclick', function() {
-          marker.setVisible(true);
+          //marker.setVisible(true);
         });
         google.maps.event.addListener(map, "click", function(event) {
           eventBubble.close();
-          marker.setVisible(true);
+          //marker.setVisible(true);
         });
         
         populateMarkers();
@@ -81,6 +81,8 @@
               icon: './images/smallpin.png',
               optimized: false
             });
+            //var markerPicture = document.querySelector('img[src="./images/smallpin.png"]');
+            //markerPicture.style.background = "url("+jsonArray[i].profilePicture+") 4px 3px no-repeat";
 
             //console.log(jsonArray[i].coverPhoto);
             var kanye = "http://d39ya49a1fwv14.cloudfront.net/wp-content/uploads/2014/01/kanye-west.jpg";
@@ -93,14 +95,14 @@
 
             testmarker.addListener('click', function() {
               eventBubble.open(map, testmarker);
-              testmarker.setVisible(false);
+              //testmarker.setVisible(false);
             });
             eventBubble.addListener('closeclick', function() {
-              testmarker.setVisible(true);
+              //testmarker.setVisible(true);
             });
             google.maps.event.addListener(map, "click", function(event) {
               eventBubble.close();
-              testmarker.setVisible(true);
+              //testmarker.setVisible(true);
             
 
             });

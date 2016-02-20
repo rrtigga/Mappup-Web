@@ -32,3 +32,9 @@ find out how you can structure the content in the infobubble
 find out how you can make a function to createMarker and addInfoBubble
 
 ====store all keys of each JSON Object
+
+
+====change background url image of each marker you pull in
+
+
+=== changing the DOM element directly might not work, make sure to use the addCSSrule in th JSFiddle
