@@ -18,14 +18,12 @@ var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
 	  str = JSON.stringify(data);
 	  json = eval('[' + str + ']');	  
 	  for (var i = json.length - 1; i >= 0; i--) {
-	  	//console.log(json[i][0]);
-	  	//but how do I skip the first layer with the objectID?  	
-		for (var key in json) {
-		 if (json.hasOwnProperty(key)) {
-		   console.log(key + " -> " + json[key]);
-		   console.log(json[key]["eventTitle"]);
-		 }
-		}
+	  	//console.log(json[i])
+	  	for (var key in json[i]) { //loop through the keys
+        	console.log(json[i][key]["eventTitle"]);
+        	//console.log("you make me");
+        }
+	  	//but how do I skip the first layer with the objectID
 	  }
 	  
 	});
