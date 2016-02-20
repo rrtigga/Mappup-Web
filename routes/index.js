@@ -7,7 +7,7 @@ var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
+/*var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
 	var json=[];
 	var jsonArray;
 	var data;
@@ -26,7 +26,7 @@ var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
 	  	//but how do I skip the first layer with the objectID
 	  }
 	  
-	});
+	});*/
 
 	res.render('index', { title: 'Express' });
 });
@@ -36,9 +36,10 @@ router.get('/insert', function(req, res, next) {
 	myFirebaseRef.push({
 		"eventTitle": "Kanye T.L.O.P. World Tour",
 	    "eventDescription": "Watch Ye jump over Jumpman",
-		"date": "2016-02-17",
-		"startTime": "2016-02-17T03:26:41.265Z",
-		"endTime": "2016-02-17T03:29:41.265Z",
+		"date": "February 18th",
+		"eventURL": "https://www.facebook.com/events/535151279996049/",
+		"startTime": "7:30pm",
+		"endTime": "9:30pm",
 		"location": { 
 	      "coordinates": [38.534447547308,-121.74880507201], //[<latitude>, <longitude>]
 	      "city": "Davis",
