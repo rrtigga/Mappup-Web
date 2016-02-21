@@ -38,3 +38,6 @@ find out how you can make a function to createMarker and addInfoBubble
 
 
 === changing the DOM element directly might not work, make sure to use the addCSSrule in th JSFiddle
+
+
+==get an array of all profilePictures

@@ -7,27 +7,6 @@ var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-/*var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
-	var json=[];
-	var jsonArray;
-	var data;
-	var str = "";
-	myFirebaseRef.once("value", function(snapshot) {
-		//object
-	  data = snapshot.val();
-	  str = JSON.stringify(data);
-	  json = eval('[' + str + ']');	  
-	  for (var i = json.length - 1; i >= 0; i--) {
-	  	//console.log(json[i])
-	  	for (var key in json[i]) { //loop through the keys
-        	console.log(json[i][key]["eventTitle"]);
-        	//console.log("you make me");
-        }
-	  	//but how do I skip the first layer with the objectID
-	  }
-	  
-	});*/
-
 	res.render('index', { title: 'Express' });
 });
 

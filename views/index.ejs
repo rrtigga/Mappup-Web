@@ -47,13 +47,15 @@
           eventBubble.close();
           //marker.setVisible(true);
         });
-        
         populateMarkers();
-
-
       }
-
-
+      function addCSSRule(sheet, selector, rules, index) {
+        if ("insertRule" in sheet) {
+            sheet.insertRule(selector + "{" + rules + "}", index);
+        } else if ("addRule" in sheet) {
+            sheet.addRule(selector, rules, index);
+        }
+    }
       function populateMarkers(){
         var testlocation = {lat: 38.439047,lng: -121.850211};
         var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
@@ -78,17 +80,27 @@
             var testmarker = new google.maps.Marker({
               position: testlocation,
               map: map,
-              icon: './images/smallpin.png',
+              icon: './images/smallpin.png#'+ i,
               optimized: false
             });
+            addCSSRule(document.styleSheets[0],
+                'img[src="' + './images/smallpin.png#' + i + '"]',
+                'background:url(' + jsonArray[i].profilePicture+') no-repeat 4px 3px;background-size: 85px 51px;');
             //var markerPicture = document.querySelector('img[src="./images/smallpin.png"]');
             //markerPicture.style.background = "url("+jsonArray[i].profilePicture+") 4px 3px no-repeat";
 
             //console.log(jsonArray[i].coverPhoto);
+
             var kanye = "http://d39ya49a1fwv14.cloudfront.net/wp-content/uploads/2014/01/kanye-west.jpg";
+            
+            var coverPhoto = jsonArray[i].coverPhoto;
+            var eventURL = jsonArray[i].eventURL;
+            var eventTitle = jsonArray[i].eventTitle;
+            var completeDate = jsonArray[i].date+", "+jsonArray[i].startTime+ "-"+jsonArray[i].endTime; 
+            var eventDescription = jsonArray[i].eventDescription;
 
             var eventBubble = new InfoBubble({
-              content: "<img style='max-width:440px'src="+jsonArray[i].coverPhoto+"> <br> <a style='color:#4A90E2' target='_blank'href='https://www.facebook.com/events/1048730378484224/'><h1 style='padding-bottom:10px;margin:0 22.5px;'>Katy Perry: Prism Tour @ UC Davis</h1></a> <a target='_blank'style='float:right' href='https://www.google.com/maps/dir//37.004,111.23/'><img style = 'max-width:35px;margin-right:70px;'src='./images/directions.png'></a><h2 style='color:#9B9B9B; margin-left:22.5px;'>February 26, 7:30pm-10pm </h2><h3 style='width:375px; margin:0 auto;padding-top:10px;'>Watch your back, but more importantly when you get out the shower, dry your back, it’s a cold world out there. Learning is cool, but knowing is better, and I know the key to success. Life is what you make it, so let’s make it. Congratulations, you played yourself. Let’s see what Chef Dee got that they don’t want us to eat. To succeed you must believe. When you believe, you will succeed. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. Stay focused.</h3>",
+              content: "<img style='max-width:440px'src="+coverPhoto+"> <br> <a style='color:#4A90E2' target='_blank'href="+eventURL+"><h1 style='padding-bottom:10px;margin:0 22.5px;'>"+eventTitle+"</h1></a> <a target='_blank'style='float:right' href='https://www.google.com/maps/dir//37.004,111.23/'><img style = 'max-width:35px;margin-right:70px;'src='./images/directions.png'></a><h2 style='color:#9B9B9B; margin-left:22.5px;'>"+completeDate+"</h2><h3 style='width:375px; margin:0 auto;padding-top:10px;'>"+eventDescription+"</h3>",
               maxWidth:420,
               maxHeight:400
             });
@@ -103,14 +115,10 @@
             google.maps.event.addListener(map, "click", function(event) {
               eventBubble.close();
               //testmarker.setVisible(true);
-            
-
             });
           }
           });
-        
       }
-
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAVoOT1jOwDAdDi-W0KQOC-qHWisU_AY	
