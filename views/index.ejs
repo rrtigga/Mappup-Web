@@ -11,13 +11,13 @@
     <script type="text/javascript" src="./javascripts/infobubble.js"> </script>
     <script type="text/javascript">
 
-      var map;
+      var map; //<-- This is now available to both event listeners and the initMap() function
       var davis = {lat: 38.539047,lng: -121.750211};
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: davis,
           zoom: 15,
-          mapTypeId: google.maps.MapTypeId.HYBRID
+          mapTypeId: google.maps.MapTypeId.ROADMAP
         });
         
         var marker = new google.maps.Marker({
@@ -48,6 +48,16 @@
           //marker.setVisible(true);
         });
         populateMarkers();
+
+        google.maps.event.addDomListener(window, 'load', initMap);
+        google.maps.event.addDomListener(window, "resize", function() {
+        console.log("freekesha");
+        var center = map.getCenter();
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(center); 
+        console.log("die young");
+      });
+
       }
       function addCSSRule(sheet, selector, rules, index) {
         if ("insertRule" in sheet) {
@@ -83,11 +93,11 @@
               icon: './images/smallpin.png#'+ i,
               optimized: false
             });
+
+            var profilePicture = jsonArray[i].profilePicture;
             addCSSRule(document.styleSheets[0],
                 'img[src="' + './images/smallpin.png#' + i + '"]',
-                'background:url(' + jsonArray[i].profilePicture+') no-repeat 4px 3px;background-size: 85px 51px;');
-            //var markerPicture = document.querySelector('img[src="./images/smallpin.png"]');
-            //markerPicture.style.background = "url("+jsonArray[i].profilePicture+") 4px 3px no-repeat";
+                'background:url('+profilePicture+') no-repeat 4px 3px;background-size:85px 51px;border-radius:15px;-webkit-border-radius:15px;-moz-border-radius:15px;');
 
             //console.log(jsonArray[i].coverPhoto);
 
@@ -118,6 +128,8 @@
             });
           }
           });
+
+        
       }
     </script>
     <script async defer

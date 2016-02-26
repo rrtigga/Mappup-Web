@@ -6,7 +6,6 @@ var myFirebaseRef = new Firebase("https://hittup.firebaseio.com/events");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
 	res.render('index', { title: 'Express' });
 });
 
