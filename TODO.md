@@ -16,9 +16,7 @@
 
 Just focus on making a useful project first then focus on responsiveness
 
-Have only one infobubble open at a time and have the right infobubble open
-
-now figure out how to close the infobubble when you click outside the map
+Maybe try to deploy the project on Heroku and see what user feedback you can get to drive design
 
 
 https://www.google.com/maps/dir//37.004,111.23/

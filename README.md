@@ -1,7 +1,7 @@
-# Hittup-Web
+# Mappup-Web
 
 
-#Example Hittup Object
+#Example Mappup Object
 
 {
   "-KAhHX79jaBR0LJ706zS" : {
